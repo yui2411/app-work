@@ -13,6 +13,7 @@ import { AppTask } from "./pages/AppTask";
 import { AppColor } from "./pages/appsettingpage/AppColor";
 import { AppFonts } from "./pages/appsettingpage/AppFonts";
 import { AppWeeks } from "./pages/appsettingpage/AppWeeks";
+import { Navigation_bottom } from "./modules/app/Navigation_bottom";
 
 // Appのメインの実装（表示する画面とpathを定義）
 export const App = () => {
@@ -39,6 +40,8 @@ export const App = () => {
         <Route path="/app-week_start" element={<AppWeeks />} />
         {/* app-colorページ */}
         <Route path="/app-theme_color" element={<AppColor />} />
+        {/* app-naviページ */}
+        <Route path="/app-navi" element={<Navigation_bottom />} />
       </Routes>
     </Box>
   );
