@@ -14,55 +14,70 @@ export const Navigation_bottom = () => {
   return (
     <Box className="Nav_size" sx={sx}>
       <BottomNavigation
-        className="Nav_border"
         showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
+          console.log(newValue);
         }}
       >
-        <Box className="nav">
-          <Button className="Nav_border_item">月</Button>
-          <Button className="Nav_border_item">週</Button>
-          <Button className="Nav_border_item">
-            <SearchIcon />
-          </Button>
-          <Button className="Nav_border_item">todo</Button>
-        </Box>
-        <BottomNavigationAction className="Nav+" icon={<AddCircleIcon />} />
+        <BottomNavigationAction
+          tabIndex={0}
+          className="Nav_border_item"
+          label="月"
+        />
+        <BottomNavigationAction
+          tabIndex={1}
+          className="Nav_border_item"
+          label="週"
+        />
+        <BottomNavigationAction
+          tabIndex={2}
+          className="Nav_border_item"
+          icon={<SearchIcon />}
+        />
+        <BottomNavigationAction
+          tabIndex={3}
+          className="Nav_border_item"
+          label="todo"
+        />
       </BottomNavigation>
+      <IconButton className="Nav+">
+        <AddCircleIcon className="icon_button" />
+      </IconButton>
     </Box>
   );
 };
 
 const sx: SxProps<Theme> = {
   "&.Nav_size": {
-    width: "500",
-  },
-  ".Nav_border": {
-    // border: "1px solid #e7e7ed",
-    // backgroundColor: "#e7e7ed",
-  },
-  ".nav": {
-    border: "1px solid #e7e7ed",
-    backgroundColor: "#e7e7ed",
     width: "100%",
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
   },
-  ".Nav_border_item + .Nav_border_item": {
-    //
-    //borderHeight: "60%",
-  },
-  ".Nav_border_item": {
-    width: "calc(100% /  4 )",
-    display: "flex",
-    justifyContent: "center",
-    borderLeft: "1px solid #c1c1c1",
-    color: "#212121",
-    borderRadius: "13px",
+  ".Nav_border": {
+    width: "100%",
     backgroundColor: "#e7e7ed",
   },
+  ".Nav_border_item": {
+    justifyContent: "center",
+    borderLeft: "1px solid #c1c1c1",
+    color: "#414141",
+    backgroundColor: "#e7e7ed",
+    width: "calc(100% / 4)",
+    borderRadius: "17px",
+    maxWidth: "initial",
+  },
+  ".MuiBottomNavigationAction-label": {
+    fontSize: "20px",
+  },
+  ".MuiBottomNavigation-root": {
+    width: "100%",
+    maxWidth: "initial",
+  },
   ".Nav+": {},
+  ".icon_button": {
+    color: "#d3d",
+    width: "50px",
+    height: "50px",
+  },
 };
