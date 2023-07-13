@@ -1,5 +1,8 @@
 import { Box, SxProps, Theme, Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 
 export const Monthly = () => {
   return (
@@ -15,6 +18,9 @@ export const Monthly = () => {
       <Button component={Link} to="/app-setting">
         ⚙️🔧
       </Button>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DateCalendar className="monthly" />
+      </LocalizationProvider>
     </Box>
   );
 };
@@ -22,5 +28,8 @@ export const Monthly = () => {
 const sx: SxProps<Theme> = {
   "&.Monthly": {
     width: "100%",
+  },
+  ".monthly": {
+    backgroundColor: "#ffd6ea",
   },
 };
