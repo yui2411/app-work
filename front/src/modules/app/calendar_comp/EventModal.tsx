@@ -2,12 +2,12 @@ import React, { useState, useContext } from "react";
 import { MdDeleteForever, MdClose } from "react-icons/md";
 import GlobalContext from "../calendar_contx/GlobalContext";
 
-export const EventModal = () => {
-    const { daySelected, setShowEventModal, dispatchCalEvent, selectedEvent } =
+export const EventModal: React.FC = () => {
+  const { daySelected, setShowEventModal, dispatchCalEvent, selectedEvent } =
     useContext(GlobalContext);
-    const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
+  const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     // クリック時に送信するというdefaultの動作をキャンセルする
     e.preventDefault();
     const calendarEvent = {
@@ -16,9 +16,9 @@ export const EventModal = () => {
       id: selectedEvent ? selectedEvent.id : Date.now(),
     };
     if (selectedEvent) {
-        dispatchCalEvent({ type: "update", payload: calendarEvent });
-      }else {
-    dispatchCalEvent({ type: "push", payload: calendarEvent });
+      dispatchCalEvent({ type: "update", payload: calendarEvent });
+    } else {
+      dispatchCalEvent({ type: "push", payload: calendarEvent });
     }
     setShowEventModal(false);
   };

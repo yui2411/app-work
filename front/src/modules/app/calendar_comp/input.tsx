@@ -1,7 +1,11 @@
 import { Box, SxProps, Theme, Button, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export const Input = () => {
+export const Input: React.FC = () => {
+  const sx: SxProps<Theme> = {
+    // ここにSxPropsのスタイルプロパティを定義
+  };
+
   return (
     <Box className="Input" sx={sx}>
       input
@@ -13,13 +17,4 @@ export const Input = () => {
       <Box>予定を編集する</Box>
     </Box>
   );
-};
-
-const sx: SxProps<Theme> = {
-  "&.Input": {
-    width: "100%",
-  },
-  ".monthly": {
-    backgroundColor: "#ffd6ea",
-  },
 };
