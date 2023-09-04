@@ -1,19 +1,20 @@
 import React, { useState, useContext } from "react";
 import { MdDeleteForever, MdClose } from "react-icons/md";
-import GlobalContext from "../calendar_contx/GlobalContext";
+import { GlobalContext, Event } from "../calendar_contx/GlobalContext";
+import dayjs from 'dayjs';
 
 export const EventModal: React.FC = () => {
   const { daySelected, setShowEventModal, dispatchCalEvent, selectedEvent } =
     useContext(GlobalContext);
-  const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
+  const [title, setTitle] = useState(selectedEvent ? selectedEvent : "");
 
   const handleSubmit = (e: React.FormEvent) => {
     // クリック時に送信するというdefaultの動作をキャンセルする
     e.preventDefault();
-    const calendarEvent = {
-      title: title,
-      day: daySelected.valueOf(),
+    const calendarEvent:Event = {
       id: selectedEvent ? selectedEvent.id : Date.now(),
+      title: title,
+      day: daySelected ? daySelected : dayjs(),
     };
     if (selectedEvent) {
       dispatchCalEvent({ type: "update", payload: calendarEvent });
@@ -55,7 +56,7 @@ export const EventModal: React.FC = () => {
               className="pt-3 border-0 text-pink-200 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-300"
               onChange={(e) => setTitle(e.target.value)}
             />
-            <p>{daySelected.format("dddd, MMMM DD")}</p>
+            <p>{daySelected.format("MMMM YYYY")}</p>
           </div>
         </div>
         <footer className="flex justify-end border-t p-3 mt-5">

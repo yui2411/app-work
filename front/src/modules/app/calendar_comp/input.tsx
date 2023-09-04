@@ -1,5 +1,4 @@
-import { Box, SxProps, Theme, Button, TextField } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, SxProps, Theme, TextField } from "@mui/material";
 
 export const Input: React.FC = () => {
   const sx: SxProps<Theme> = {

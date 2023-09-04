@@ -1,8 +1,9 @@
 import React from "react";
 import { Day } from "./Day";
+import dayjs from 'dayjs';
 
 interface MonthProps {
-  month: Date[][];
+  month: dayjs.Dayjs[][];
 }
 
 export const Month: React.FC<MonthProps> = (props) => {
