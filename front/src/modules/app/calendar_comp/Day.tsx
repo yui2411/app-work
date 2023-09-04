@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import dayjs from "dayjs";
-import GlobalContext from "../calendar_contx/GlobalContext";
+import { GlobalContext } from "../calendar_contx/GlobalContext";
 
 interface DayProps {
   day: dayjs.Dayjs;
   rowIdx: number;
 }
 
-const Day: React.FC<DayProps> = ({ day, rowIdx }) => {
+export const Day: React.FC<DayProps> = ({ day, rowIdx }) => {
   const [dayEvents, setDayEvents] = useState<any[]>([]);
   const { setDaySelected, setShowEventModal, savedEvents, setSelectedEvent } =
     useContext(GlobalContext);
@@ -15,14 +15,14 @@ const Day: React.FC<DayProps> = ({ day, rowIdx }) => {
   // 今日の日付を色付けする
   const getCurrentDayClass = () => {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
-      ? "text-gray-400 border-dashed border-2 border-pink-200 w-7"
+      ? "text-gray-400 border-solid border-2 border-pink-200 w-7"
       : "";
   };
 
   // 登録データを日付が一致する日に表示
   useEffect(() => {
     const events = savedEvents.filter(
-      (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
+      (evt) => dayjs(evt).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
   }, [savedEvents, day]);
@@ -62,5 +62,3 @@ const Day: React.FC<DayProps> = ({ day, rowIdx }) => {
     </div>
   );
 };
-
-export default Day;

@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import { theme } from "./theme";
+import ContextWrapper from "../src/modules/app/calendar_contx/ContextWrapper";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,7 +15,9 @@ root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <App />
+        <ContextWrapper>
+          <App />
+        </ContextWrapper>
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>

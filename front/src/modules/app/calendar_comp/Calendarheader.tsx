@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import ja from "dayjs/locale/ja";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import dayjs, { Dayjs } from "dayjs"; // Dayjsのインポートを追加
-import GlobalContext from "../calendar_contx/GlobalContext";
+import dayjs from "dayjs";
+import { GlobalContext } from "../calendar_contx/GlobalContext";
 
 dayjs.locale(ja);
 

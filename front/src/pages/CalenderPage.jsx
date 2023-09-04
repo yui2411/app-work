@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { getMonth } from "../util";
 import { CalendarHeader } from "../modules/app/calendar_comp/Calendarheader";
 import { Month } from "../modules/app/calendar_comp/Month";
-import GlobalContext from "../modules/app/calendar_contx/GlobalContext";
+import { GlobalContext } from "../modules/app/calendar_contx/GlobalContext";
 import { EventModal } from "../modules/app/calendar_comp/EventModal";
 
 export const CalenderPage=() => {
