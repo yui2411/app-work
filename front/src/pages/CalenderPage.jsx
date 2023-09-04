@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 
-import { getMonth } from "./util";
-import { CalendarHeader } from "../src/modules/app/calendar_comp/Calendarheader";
-import { Month } from "../src/modules/app/calendar_comp/Month";
-import GlobalContext from "../src/modules/app/calendar_contx/GlobalContext";
-import { EventModal } from "../src/modules/app/calendar_comp/EventModal";
+import { getMonth } from "../util";
+import { CalendarHeader } from "../modules/app/calendar_comp/Calendarheader";
+import { Month } from "../modules/app/calendar_comp/Month";
+import { GlobalContext } from "../modules/app/calendar_contx/GlobalContext";
+import { EventModal } from "../modules/app/calendar_comp/EventModal";
 
-function App() {
+export const CalenderPage=() => {
   const [currentMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex, showEventModal } = useContext(GlobalContext);
 
@@ -26,5 +26,3 @@ function App() {
     </>
   );
 }
-
-export default App;
