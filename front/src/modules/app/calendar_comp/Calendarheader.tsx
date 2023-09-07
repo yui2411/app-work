@@ -48,7 +48,7 @@ export const CalendarHeader: React.FC = () => {
         <div className="flex items-center absolute inset-y-0 right-0">
           <button
             onClick={handleReset}
-            className="border rounded py-2 px-4 mr-5 text-blue-200"
+            className="border border-gray-300 rounded py-2 px-4 mr-5 text-blue-200"
           >
             Today
           </button>

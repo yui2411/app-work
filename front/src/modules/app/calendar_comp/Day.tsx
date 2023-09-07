@@ -15,7 +15,7 @@ export const Day: React.FC<DayProps> = ({ day, rowIdx }) => {
   // 今日の日付を色付けする
   const getCurrentDayClass = () => {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
-      ? "text-gray-400 border-solid border-2 border-pink-200 w-7"
+      ? "text-gray-400 rounded-lg border-solid border-2 border-pink-200 w-7 underline underline-offset-4"
       : "";
   };
 
@@ -32,7 +32,7 @@ export const Day: React.FC<DayProps> = ({ day, rowIdx }) => {
       <header className="flex flex-col bg-cyan-50 items-center">
         {/* 1行目に曜日を表示 */}
         {rowIdx === 0 && (
-          <p className="text-sm mt-1 bg-white text-purple-400">
+          <p className="text-sm mt-1 bg-cyan-50 text-gray-400 underline underline-offset-4">
             {day.format("ddd")}
           </p>
         )}
