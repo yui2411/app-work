@@ -15,30 +15,15 @@ import { CalenderPage } from "./pages/CalenderPage";
 
 // Appのメインの実装（表示する画面とpathを定義）
 export const App = () => {
-  const [currentMonth, setCurrentMonth] = useState(getMonth());
-  const { monthIndex, showEventModal } = useContext(GlobalContext);
-
-  useEffect(() => {
-    setCurrentMonth(getMonth(monthIndex));
-  }, [monthIndex]);
   return (
     <Box className="App" sx={sx}>
-      <>
-        {showEventModal && <EventModal />}
-        <div className="h-screen flex flex-col">
-          <CalendarHeader />
-          <div className="flex flex-1">
-            <Month month={currentMonth} />
-          </div>
-        </div>
-      </>
       <Routes>
         {/* トップページ*/}
-        <Route path="/" element={<TopPage />} />
+        <Route path="/top" element={<TopPage />} />
         {/* カレンダーページ */}
-        <Route path="/app" element={<CalenderPage />} />
+        <Route path="/" element={<CalenderPage />} />
         {/* app-inputページ */}
-        <Route path="/app-input" element={<Input />} />
+        <Route path="/input" element={<Input />} />
       </Routes>
     </Box>
   );
