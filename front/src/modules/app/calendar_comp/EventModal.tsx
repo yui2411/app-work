@@ -56,7 +56,7 @@ export const EventModal: React.FC = () => {
               className="pt-3 border-0 text-pink-200 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-300"
               onChange={(e) => setTitle(e.target.value)}
             />
-            <p>{daySelected.format("MMMM YYYY")}</p>{" "}
+            <p>{daySelected.format("YYYY年 MMMM DD日")}</p>{" "}
           </div>
         </div>
         <footer className="flex justify-end border-t p-3 mt-5">

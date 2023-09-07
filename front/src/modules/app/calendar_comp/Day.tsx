@@ -22,7 +22,7 @@ export const Day: React.FC<DayProps> = ({ day, rowIdx }) => {
   // 登録データを日付が一致する日に表示
   useEffect(() => {
     const events = savedEvents.filter(
-      (evt) => dayjs(evt).format("DD-MM-YY") === day.format("DD-MM-YY")
+      (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
   }, [savedEvents, day]);
